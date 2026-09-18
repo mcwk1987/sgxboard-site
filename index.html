@@ -38,19 +38,24 @@
     pre{margin:0;color:#b6c4d9;font:13px/1.9 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap}.cmd{color:#8eb2ff}.ok{color:#87e6c7}.dim{color:#748198}
     section{padding:72px 0}.kicker{color:#9bbaff;font-size:12px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:11px}
     h2{font-size:clamp(30px,4vw,45px);line-height:1.1;letter-spacing:-.04em;margin:0 0 14px}.section-copy{max-width:760px;color:var(--muted);font-size:17px;margin:0 0 34px}
-    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{padding:29px;border-radius:25px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.016)),var(--panel)}
-    .featured{grid-column:span 2;display:grid;grid-template-columns:1.25fr .75fr;gap:26px}
+    .projects{display:grid;gap:28px}.card{padding:29px;border-radius:25px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.014)),var(--panel);box-shadow:0 20px 54px rgba(0,0,0,.16)}
+    .project-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px;align-items:center;padding:24px;overflow:hidden}
+    .project-card.reverse{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+    .project-card.reverse .shot{order:-1}
+    .project-copy{padding:8px 4px}
+    .project-index{display:inline-flex;align-items:center;gap:7px;margin-bottom:13px;color:#74839a;font:750 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}
+    .project-index:before{content:"";width:22px;height:1px;background:linear-gradient(90deg,#82adff,#78e1c0)}
     .meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}.type{color:#9abaff;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.status{font-size:11px;font-weight:800;color:#b7edd9;background:rgba(120,225,192,.07);border:1px solid rgba(120,225,192,.14);padding:5px 9px;border-radius:999px}
     h3{font-size:26px;letter-spacing:-.03em;line-height:1.15;margin:0 0 11px}.desc,.focus{color:var(--muted);margin:0 0 20px}.focus{font-size:14px;color:#c8d2e2}.focus strong{color:var(--text)}
     .tags{display:flex;flex-wrap:wrap;gap:8px}.tag{padding:6px 9px;border-radius:9px;border:1px solid rgba(255,255,255,.075);background:rgba(255,255,255,.024);font-size:12px;color:#aebbd0;font-weight:700}
-    .shot{overflow:hidden;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:#09121f;box-shadow:0 18px 45px rgba(0,0,0,.28)}.shot-head{display:flex;align-items:center;gap:9px;padding:11px 13px;border-bottom:1px solid rgba(255,255,255,.07);color:#b9c7db;font-size:11px;font-weight:750;letter-spacing:.025em}.shot-dot{width:7px;height:7px;border-radius:50%;background:#74dfbf;box-shadow:0 0 12px rgba(116,223,191,.5)}.shot-meta{margin-left:auto;color:#75839a;font-weight:650}.shot a{display:block}.shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top left}.shot-caption{margin:0;padding:10px 13px;color:#8390a5;font-size:11px;border-top:1px solid rgba(255,255,255,.06)}.proof{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}.proof span{padding:6px 9px;border-radius:9px;border:1px solid rgba(116,229,194,.12);background:rgba(116,229,194,.055);color:#b8e8d9;font-size:11px;font-weight:700}
+    .shot{overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,.10);background:#08111e;box-shadow:0 24px 58px rgba(0,0,0,.34);position:relative}.shot:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:20px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.025)}.shot-head{display:flex;align-items:center;gap:9px;padding:11px 13px;border-bottom:1px solid rgba(255,255,255,.07);color:#c2cee0;font-size:11px;font-weight:750;letter-spacing:.025em;background:rgba(255,255,255,.018)}.shot-dot{width:7px;height:7px;border-radius:50%;background:#74dfbf;box-shadow:0 0 12px rgba(116,223,191,.5)}.shot-meta{margin-left:auto;color:#75839a;font-weight:650}.shot a{display:block;overflow:hidden}.shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top left;transition:transform .35s ease}.shot:hover img{transform:scale(1.018)}.shot-caption{margin:0;padding:10px 13px;color:#8390a5;font-size:11px;border-top:1px solid rgba(255,255,255,.06)}.proof{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}.proof span{padding:6px 9px;border-radius:9px;border:1px solid rgba(116,229,194,.12);background:rgba(116,229,194,.055);color:#b8e8d9;font-size:11px;font-weight:700}
     .stack{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.stack .card{padding:21px;border-radius:18px}.stack h3{font-size:16px}.stack p{margin:0;color:var(--muted);font-size:14px}
     .approach{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}.principles{padding:29px;border:1px solid var(--line);border-radius:25px;background:linear-gradient(145deg,rgba(131,174,248,.06),rgba(120,225,192,.025)),rgba(255,255,255,.018)}
     .principle{display:grid;grid-template-columns:36px 1fr;gap:14px;margin-bottom:18px}.principle:last-child{margin-bottom:0}.num{display:grid;place-items:center;width:36px;height:36px;border:1px solid rgba(131,174,248,.15);border-radius:10px;color:#a9c4ff;background:rgba(131,174,248,.07);font-size:12px;font-weight:800}.principle h3{font-size:16px;margin:0 0 4px}.principle p{margin:0;color:var(--muted);font-size:14px}
     .cta{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:33px;border:1px solid rgba(131,174,248,.14);border-radius:25px;background:radial-gradient(circle at 100% 0%,rgba(120,225,192,.08),transparent 32%),linear-gradient(135deg,rgba(131,174,248,.07),rgba(255,255,255,.018))}
     .cta h2{font-size:clamp(27px,4vw,38px);margin-bottom:8px}.cta p{color:var(--muted);margin:0}
     footer{padding:28px 0 44px;color:#78859b;font-size:13px}.footer{display:flex;justify-content:space-between;gap:18px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07)}.footer a{text-decoration:none;color:#aebbd0}
-    @media(max-width:900px){.hero-grid,.approach,.featured{grid-template-columns:1fr}.featured{grid-column:auto}.projects{grid-template-columns:1fr}.stack{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:900px){.hero-grid,.approach,.project-card,.project-card.reverse{grid-template-columns:1fr}.project-card.reverse .shot{order:0}.stack{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:650px){.wrap{width:min(calc(100% - 22px),var(--max))}.links a:not(:last-child){display:none}.hero{padding:65px 0 54px}section{padding:55px 0}.stack{grid-template-columns:1fr}.cta,.footer{align-items:flex-start;flex-direction:column}.actions{flex-direction:column}.btn{width:100%}}
   </style>
 </head>
@@ -107,17 +112,18 @@ API integrations
       <p class="section-copy">These are personal, non-commercial projects used to explore application architecture, data modelling, responsive design, testing, deployment and automation.</p>
 
       <div class="projects">
-        <article class="card featured">
-          <div>
-            <div class="meta"><span class="type">Web application</span><span class="status">Active development</span></div>
-            <h3>VoyageSuite</h3>
+        <article class="card project-card">
+          <div class="project-copy">
+            <div class="project-index">01 · Web application</div>
+            <div class="meta"><span class="type">VoyageSuite</span><span class="status">Active development</span></div>
+            <h3>Plan deeply at home. Read effortlessly while travelling.</h3>
             <p class="desc">A personal trip-planning web application for building detailed multi-day itineraries and viewing them easily while travelling.</p>
             <p class="focus"><strong>Development focus:</strong> responsive application design, itinerary data modelling, mobile travel mode, authentication, reliable date handling, trip lifecycle management and export workflows.</p>
-            <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">Vitest</span><span class="tag">Testing Library</span></div>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">Vitest</span></div>
             <div class="proof" aria-label="VoyageSuite implementation details"><span>Responsive UI</span><span>Trip API routes</span><span>GitHub Actions CI</span><span>Automated tests</span></div>
           </div>
           <figure class="shot">
-            <div class="shot-head"><span class="shot-dot"></span><span>Actual VoyageSuite interface</span><span class="shot-meta">current build</span></div>
+            <div class="shot-head"><span class="shot-dot"></span><span>VoyageSuite · actual interface</span><span class="shot-meta">current build</span></div>
             <a href="voyagesuite-trip-workspace.png" target="_blank" rel="noreferrer" aria-label="Open full VoyageSuite screenshot">
               <img src="voyagesuite-trip-workspace.png" alt="VoyageSuite trip workspace showing the real application interface" loading="lazy">
             </a>
@@ -125,20 +131,29 @@ API integrations
           </figure>
         </article>
 
-        <article class="card">
-          <div class="meta"><span class="type">Windows desktop application</span><span class="status">Active development</span></div>
-          <h3>ShiftLedger</h3>
-          <p class="desc">A Windows desktop application for recording hourly work, project earnings, CPF calculations and payment reconciliation.</p>
-          <p class="focus"><strong>Development focus:</strong> desktop UI architecture, local persistence, calculation logic, reporting, reconciliation and automated testing.</p>
-          <div class="tags"><span class="tag">C#</span><span class="tag">WPF</span><span class="tag">.NET</span><span class="tag">MVVM</span><span class="tag">EF Core</span><span class="tag">SQLite</span></div>
-          <div class="proof" aria-label="ShiftLedger implementation details"><span>Layered solution</span><span>Local persistence</span><span>GitHub Actions CI</span><span>Automated tests</span></div>
+        <article class="card project-card reverse">
+          <div class="project-copy">
+            <div class="project-index">02 · Windows desktop application</div>
+            <div class="meta"><span class="type">ShiftLedger</span><span class="status">Working prototype</span></div>
+            <h3>Turn shifts, pay and CPF reconciliation into one coherent ledger.</h3>
+            <p class="desc">A Windows desktop application for recording hourly work, project earnings, CPF calculations, cash receipts and payment reconciliation.</p>
+            <p class="focus"><strong>Development focus:</strong> WPF desktop UI architecture, deterministic calculation rules, local persistence, reconciliation, reporting, packaging and automated testing.</p>
+            <div class="tags"><span class="tag">C#</span><span class="tag">WPF</span><span class="tag">.NET</span><span class="tag">MVVM</span><span class="tag">EF Core</span><span class="tag">SQLite</span></div>
+            <div class="proof" aria-label="ShiftLedger implementation details"><span>Layered solution</span><span>Demo database</span><span>GitHub Actions CI</span><span>Automated tests</span><span>Portable Windows build</span></div>
+          </div>
+          <figure class="shot">
+            <div class="shot-head"><span class="shot-dot"></span><span>ShiftLedger · dashboard</span><span class="shot-meta">demo data</span></div>
+            <a href="shiftledger-dashboard.jpg" target="_blank" rel="noreferrer" aria-label="Open ShiftLedger dashboard screenshot">
+              <img src="shiftledger-dashboard.jpg" alt="ShiftLedger desktop dashboard showing earnings, CPF and reconciliation panels" loading="lazy">
+            </a>
+            <figcaption class="shot-caption">Dashboard preview using the project's demo workspace — no personal production ledger data.</figcaption>
+          </figure>
         </article>
 
         <article class="card">
           <div class="meta"><span class="type">Development experiments</span><span class="status">Ongoing</span></div>
-          <h3>Dashboard &amp; Automation Experiments</h3>
-          <p class="desc">Small software experiments involving responsive dashboards, structured data presentation, HTML email rendering, scheduled workflows and external-service integrations.</p>
-          <p class="focus"><strong>Development focus:</strong> cross-device UI, static deployment, email-compatible layouts, APIs and workflow automation.</p>
+          <h3>Dashboards, email rendering &amp; automation</h3>
+          <p class="desc">Smaller experiments around responsive dashboards, structured data presentation, HTML email rendering, scheduled workflows and external-service integrations.</p>
           <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span><span class="tag">APIs</span><span class="tag">Email</span><span class="tag">Automation</span></div>
         </article>
       </div>
