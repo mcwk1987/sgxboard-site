@@ -1,91 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b2745">
-  <title>SGX Portfolio Dashboard</title>
-  <meta name="description" content="A non-commercial software project exploring a clean daily dashboard for Singapore-listed income portfolios.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mcwk1987 — Personal Software Projects</title>
+  <meta name="description" content="A personal software-development portfolio documenting web, desktop and automation projects including VoyageSuite and ShiftLedger.">
+  <meta name="theme-color" content="#08111f">
   <style>
-    :root{--navy:#0b2745;--navy2:#123b63;--ink:#15314f;--muted:#688096;--line:#dfe7ef;--bg:#eef4f8;--card:#fff;--green:#157347;--red:#b42318;--amber:#a15c00;--blue:#0d6efd}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:linear-gradient(180deg,#eaf1f7 0,#f7fafc 42%,#eef4f8 100%);color:var(--ink)}
-    .shell{width:min(1180px,94vw);margin:0 auto}
-    .top{padding:30px 0 18px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:13px}.mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#0f4f80,#7db2d8);display:grid;place-items:center;color:white;font-weight:800;box-shadow:0 8px 20px #0b274522}.brand h1{font-size:20px;margin:0;letter-spacing:-.02em}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.pill{font-size:12px;border:1px solid #c9d7e4;background:#fff;border-radius:999px;padding:8px 12px;color:#49667f}
-    .hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#0b2745,#164f7b 58%,#2f77a3);border-radius:24px;box-shadow:0 22px 56px #17395725;color:#fff;padding:44px 44px 0;min-height:330px}.hero:before{content:"";position:absolute;inset:auto -8% -38% auto;width:520px;height:520px;border-radius:50%;background:#ffffff10}.hero:after{content:"";position:absolute;inset:-42% auto auto -8%;width:380px;height:380px;border-radius:50%;background:#ffffff0b}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#bcd7ea;font-weight:700}.hero h2{position:relative;z-index:2;margin:10px 0 12px;font-size:46px;line-height:1.05;max-width:720px;letter-spacing:-.04em}.hero p{position:relative;z-index:2;margin:0;max-width:700px;color:#dceaf4;font-size:16px;line-height:1.65}.skyline{height:120px;margin-top:26px;display:flex;align-items:flex-end;gap:10px;opacity:.95}.b{background:#d4e9f6;border-radius:3px 3px 0 0;box-shadow:inset 0 0 0 1px #ffffff28}.b:nth-child(1){width:74px;height:48px}.b:nth-child(2){width:42px;height:88px}.b:nth-child(3){width:90px;height:64px}.b:nth-child(4){width:38px;height:112px}.b:nth-child(5){width:58px;height:84px}.b:nth-child(6){width:34px;height:98px}.b:nth-child(7){width:100px;height:56px}.b:nth-child(8){width:50px;height:76px}.b:nth-child(9){width:32px;height:110px}.b:nth-child(10){width:84px;height:68px}.b:nth-child(11){width:54px;height:92px}.b:nth-child(12){width:80px;height:52px}
-    .note{margin:18px 0 24px;background:#f9fcff;border:1px solid #d9e5ef;border-radius:14px;padding:12px 15px;color:#587287;font-size:12px;line-height:1.55}.note strong{color:#294b67}
-    .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 26px #15314f0d}.kpi{padding:18px}.label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.value{font-size:25px;font-weight:800;margin-top:7px;letter-spacing:-.03em}.sub{font-size:11px;margin-top:5px;color:#7890a5}.pos{color:var(--green)}.neg{color:var(--red)}
-    .grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;margin-top:14px}.panel{padding:22px}.panel h3{font-size:16px;margin:0 0 14px}.verdict{display:flex;gap:12px;align-items:flex-start}.badge{background:#e9f7ef;color:#146c43;border:1px solid #bfe3ce;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:800;white-space:nowrap}.panel p{font-size:13px;line-height:1.6;color:#587187;margin:6px 0}.ticket{border:1px dashed #b7cadb;border-radius:12px;padding:14px;margin-top:12px;background:#f8fbfd}.ticket strong{font-size:20px;color:#163b59}.ticket small{display:block;color:#7890a5;margin-top:3px}
-    .section{margin-top:18px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:10px}.section h3{margin:0;font-size:18px}.section-head span{font-size:11px;color:#8095a8}.table-card{overflow:hidden}.table{width:100%;border-collapse:collapse;font-size:12px}.table th{background:#f4f8fb;color:#6d8397;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:10px 12px;border-bottom:1px solid var(--line)}.table td{padding:12px;border-bottom:1px solid #edf2f6}.table tr:last-child td{border-bottom:0}.ticker{font-weight:800;color:#173a58}.muted{color:#8294a3}.tag{display:inline-block;padding:4px 7px;border-radius:999px;background:#edf5fb;color:#335b78;font-size:10px;font-weight:700}.tag.watch{background:#fff4df;color:#8c5600}
-    .analytics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.mini{padding:18px}.mini h4{font-size:13px;margin:0 0 14px}.bars{display:grid;gap:10px}.row{display:grid;grid-template-columns:82px 1fr 42px;gap:8px;align-items:center;font-size:11px;color:#587187}.track{height:8px;background:#e8eff5;border-radius:999px;overflow:hidden}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#2a6f9d,#7fb9db)}.footer{padding:30px 0 46px;color:#7b90a3;font-size:11px;line-height:1.6;text-align:center}
-    @media(max-width:980px){.kpis{grid-template-columns:repeat(3,1fr)}.analytics{grid-template-columns:1fr 1fr}.hero h2{font-size:38px}}
-    @media(max-width:680px){.shell{width:min(100% - 24px,1180px)}.top{padding-top:18px}.pill{display:none}.hero{padding:28px 24px 0;border-radius:18px;min-height:300px}.hero h2{font-size:34px}.hero p{font-size:14px}.skyline{height:92px}.kpis{grid-template-columns:1fr 1fr}.grid2,.analytics{grid-template-columns:1fr}.value{font-size:22px}.table{font-size:11px}.table th,.table td{padding:9px 8px}.hide-sm{display:none}}
+    :root{
+      --bg:#07101d;--bg2:#0a1424;--panel:rgba(16,29,50,.78);--line:rgba(255,255,255,.10);
+      --text:#f5f8ff;--muted:#a7b4c9;--blue:#83aef8;--mint:#78e1c0;--max:1160px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{
+      margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.65;background:
+      radial-gradient(circle at 14% 0%,rgba(77,120,255,.18),transparent 31%),
+      radial-gradient(circle at 92% 8%,rgba(72,221,176,.12),transparent 28%),
+      linear-gradient(180deg,var(--bg) 0%,var(--bg2) 48%,var(--bg) 100%);
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit}.wrap{width:min(calc(100% - 32px),var(--max));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(7,16,29,.76);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+    nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:800;letter-spacing:-.02em}
+    .mark{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(131,174,248,.22),rgba(120,225,192,.09));color:#d8e6ff;font:700 13px ui-monospace,SFMono-Regular,Menlo,monospace}
+    .links{display:flex;gap:22px}.links a{text-decoration:none;color:var(--muted);font-size:14px}.links a:hover{color:var(--text)}
+    .hero{padding:104px 0 78px}.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:46px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border-radius:999px;border:1px solid rgba(131,174,248,.18);background:rgba(131,174,248,.07);color:#c7d8ff;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 18px rgba(120,225,192,.7)}
+    h1{font-size:clamp(45px,7vw,76px);line-height:1.02;letter-spacing:-.055em;margin:22px 0 24px;max-width:820px}
+    h1 span{color:#a9c4ff}.lead{max-width:760px;color:var(--muted);font-size:clamp(17px,2vw,20px);margin:0 0 30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:13px;text-decoration:none;font-size:14px;font-weight:800;border:1px solid var(--line);transition:.15s ease}
+    .btn:hover{transform:translateY(-1px)}.primary{background:linear-gradient(135deg,#a4c1ff,#7ee2c3);color:#06101b;border-color:transparent}.secondary{background:rgba(255,255,255,.035)}
+    .terminal{padding:24px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015)),rgba(11,22,39,.84);box-shadow:0 24px 70px rgba(0,0,0,.3)}
+    .lights{display:flex;gap:7px;margin-bottom:22px}.light{width:9px;height:9px;border-radius:50%}.r{background:#ff7e89}.y{background:#f0c65c}.g{background:#71d8a4}
+    pre{margin:0;color:#b6c4d9;font:13px/1.9 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap}.cmd{color:#8eb2ff}.ok{color:#87e6c7}.dim{color:#748198}
+    section{padding:72px 0}.kicker{color:#9bbaff;font-size:12px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:11px}
+    h2{font-size:clamp(30px,4vw,45px);line-height:1.1;letter-spacing:-.04em;margin:0 0 14px}.section-copy{max-width:760px;color:var(--muted);font-size:17px;margin:0 0 34px}
+    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{padding:29px;border-radius:25px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.016)),var(--panel)}
+    .featured{grid-column:span 2;display:grid;grid-template-columns:1.25fr .75fr;gap:26px}
+    .meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}.type{color:#9abaff;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.status{font-size:11px;font-weight:800;color:#b7edd9;background:rgba(120,225,192,.07);border:1px solid rgba(120,225,192,.14);padding:5px 9px;border-radius:999px}
+    h3{font-size:26px;letter-spacing:-.03em;line-height:1.15;margin:0 0 11px}.desc,.focus{color:var(--muted);margin:0 0 20px}.focus{font-size:14px;color:#c8d2e2}.focus strong{color:var(--text)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}.tag{padding:6px 9px;border-radius:9px;border:1px solid rgba(255,255,255,.075);background:rgba(255,255,255,.024);font-size:12px;color:#aebbd0;font-weight:700}
+    .mock{display:grid;align-content:center;gap:11px;padding:18px;border-radius:18px;border:1px solid rgba(255,255,255,.07);background:#09121f}.mock div{border-radius:12px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.026);min-height:64px}.mock .big{min-height:118px;background:linear-gradient(135deg,rgba(131,174,248,.13),rgba(120,225,192,.05))}.mock .row{display:grid;grid-template-columns:.8fr 1.2fr;gap:10px;border:0;background:none;min-height:0}.mock .row div{min-height:72px}
+    .stack{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.stack .card{padding:21px;border-radius:18px}.stack h3{font-size:16px}.stack p{margin:0;color:var(--muted);font-size:14px}
+    .approach{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}.principles{padding:29px;border:1px solid var(--line);border-radius:25px;background:linear-gradient(145deg,rgba(131,174,248,.06),rgba(120,225,192,.025)),rgba(255,255,255,.018)}
+    .principle{display:grid;grid-template-columns:36px 1fr;gap:14px;margin-bottom:18px}.principle:last-child{margin-bottom:0}.num{display:grid;place-items:center;width:36px;height:36px;border:1px solid rgba(131,174,248,.15);border-radius:10px;color:#a9c4ff;background:rgba(131,174,248,.07);font-size:12px;font-weight:800}.principle h3{font-size:16px;margin:0 0 4px}.principle p{margin:0;color:var(--muted);font-size:14px}
+    .cta{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:33px;border:1px solid rgba(131,174,248,.14);border-radius:25px;background:radial-gradient(circle at 100% 0%,rgba(120,225,192,.08),transparent 32%),linear-gradient(135deg,rgba(131,174,248,.07),rgba(255,255,255,.018))}
+    .cta h2{font-size:clamp(27px,4vw,38px);margin-bottom:8px}.cta p{color:var(--muted);margin:0}
+    footer{padding:28px 0 44px;color:#78859b;font-size:13px}.footer{display:flex;justify-content:space-between;gap:18px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07)}.footer a{text-decoration:none;color:#aebbd0}
+    @media(max-width:900px){.hero-grid,.approach,.featured{grid-template-columns:1fr}.featured{grid-column:auto}.projects{grid-template-columns:1fr}.stack{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:650px){.wrap{width:min(calc(100% - 22px),var(--max))}.links a:not(:last-child){display:none}.hero{padding:65px 0 54px}section{padding:55px 0}.stack{grid-template-columns:1fr}.cta,.footer{align-items:flex-start;flex-direction:column}.actions{flex-direction:column}.btn{width:100%}}
   </style>
 </head>
 <body>
-  <div class="shell">
-    <header class="top">
-      <div class="brand"><div class="mark">SG</div><div><h1>SGX Portfolio Dashboard</h1><p>Personal software project · Singapore</p></div></div>
-      <div class="pill">Static showcase · demo data only</div>
-    </header>
-
-    <section class="hero">
-      <div class="eyebrow">Daily portfolio intelligence</div>
-      <h2>A calmer way to review an SGX income portfolio.</h2>
-      <p>This non-commercial software project explores how portfolio data, valuation checks, income events and action thresholds can be distilled into one concise morning dashboard.</p>
-      <div class="skyline" aria-label="Abstract Singapore skyline illustration"><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div></div>
-    </section>
-
-    <div class="note"><strong>Public demo notice:</strong> Every company name, price, holding, portfolio value and recommendation shown on this page is fictional or illustrative. This site contains no private portfolio data and is not investment advice.</div>
-
-    <section class="kpis">
-      <div class="card kpi"><div class="label">Portfolio value</div><div class="value">S$188.4k</div><div class="sub">Sample figure</div></div>
-      <div class="card kpi"><div class="label">Unrealised P/L</div><div class="value pos">+S$4.2k</div><div class="sub">+2.28%</div></div>
-      <div class="card kpi"><div class="label">Session P/L</div><div class="value neg">−S$312</div><div class="sub">Latest demo session</div></div>
-      <div class="card kpi"><div class="label">Income run-rate</div><div class="value">S$9.8k</div><div class="sub">Illustrative annualised</div></div>
-      <div class="card kpi"><div class="label">Weighted yield</div><div class="value">5.62%</div><div class="sub">Demo only</div></div>
-      <div class="card kpi"><div class="label">Cash ticket</div><div class="value">S$8.3k</div><div class="sub">Reserved dry powder</div></div>
-    </section>
-
-    <section class="grid2">
-      <div class="card panel">
-        <h3>Today's control panel</h3>
-        <div class="verdict"><span class="badge">NO ACTION</span><div><p><strong>Nothing compelling enough to force a trade.</strong></p><p>Valuations remain reasonable, but the preferred candidate is still above its predefined margin-of-safety zone. Keep cash available rather than averaging down mechanically.</p></div></div>
+<header>
+  <div class="wrap">
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="#top"><span class="mark">&lt;/&gt;</span><span>mcwk1987</span></a>
+      <div class="links">
+        <a href="#projects">Projects</a>
+        <a href="#technology">Technology</a>
+        <a href="#approach">Approach</a>
+        <a href="https://github.com/mcwk1987" target="_blank" rel="noreferrer">GitHub</a>
       </div>
-      <div class="card panel">
-        <h3>Order discipline</h3>
-        <p>One fee-efficient cash order at a time. The dashboard focuses on a realistic execution ticket rather than scattering capital across several tiny positions.</p>
-        <div class="ticket"><strong>S$8,333</strong><small>Illustrative target order size</small></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head"><h3>Portfolio analytics</h3><span>Sample categorisation</span></div>
-      <div class="analytics">
-        <div class="card mini"><h4>Allocation by sleeve</h4><div class="bars"><div class="row"><span>REITs</span><div class="track"><div class="fill" style="width:72%"></div></div><b>72%</b></div><div class="row"><span>Infra</span><div class="track"><div class="fill" style="width:14%"></div></div><b>14%</b></div><div class="row"><span>Industrial</span><div class="track"><div class="fill" style="width:9%"></div></div><b>9%</b></div><div class="row"><span>Cash</span><div class="track"><div class="fill" style="width:5%"></div></div><b>5%</b></div></div></div>
-        <div class="card mini"><h4>Decision framework</h4><div class="bars"><div class="row"><span>Yield</span><div class="track"><div class="fill" style="width:78%"></div></div><b>Strong</b></div><div class="row"><span>NAV</span><div class="track"><div class="fill" style="width:56%"></div></div><b>Fair</b></div><div class="row"><span>Balance</span><div class="track"><div class="fill" style="width:69%"></div></div><b>Okay</b></div><div class="row"><span>Trend</span><div class="track"><div class="fill" style="width:48%"></div></div><b>Mixed</b></div></div></div>
-        <div class="card mini"><h4>Trigger distance</h4><div class="bars"><div class="row"><span>Alpha REIT</span><div class="track"><div class="fill" style="width:84%"></div></div><b>Near</b></div><div class="row"><span>Beta Trust</span><div class="track"><div class="fill" style="width:62%"></div></div><b>Watch</b></div><div class="row"><span>Gamma Ind.</span><div class="track"><div class="fill" style="width:39%"></div></div><b>Far</b></div><div class="row"><span>Delta Infra</span><div class="track"><div class="fill" style="width:51%"></div></div><b>Fair</b></div></div></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head"><h3>Sample holdings table</h3><span>Fictional data</span></div>
-      <div class="card table-card">
-        <table class="table">
-          <thead><tr><th>Counter</th><th>Units</th><th>Avg Cost</th><th>Last</th><th>Market Value</th><th>P/L</th><th class="hide-sm">Yield</th><th>Flag</th></tr></thead>
-          <tbody>
-            <tr><td><span class="ticker">ALP</span><br><span class="muted">Alpha REIT</span></td><td>8,000</td><td>S$1.84</td><td>S$1.96</td><td>S$15,680</td><td class="pos">+6.5%</td><td class="hide-sm">5.8%</td><td><span class="tag watch">WATCH</span></td></tr>
-            <tr><td><span class="ticker">BET</span><br><span class="muted">Beta Network Trust</span></td><td>12,500</td><td>S$0.91</td><td>S$0.95</td><td>S$11,875</td><td class="pos">+4.4%</td><td class="hide-sm">5.5%</td><td><span class="tag">HOLD</span></td></tr>
-            <tr><td><span class="ticker">GAM</span><br><span class="muted">Gamma Industrial</span></td><td>5,400</td><td>S$2.11</td><td>S$2.04</td><td>S$11,016</td><td class="neg">−3.3%</td><td class="hide-sm">6.1%</td><td><span class="tag">HOLD</span></td></tr>
-            <tr><td><span class="ticker">DEL</span><br><span class="muted">Delta Infrastructure</span></td><td>20,000</td><td>S$0.49</td><td>S$0.52</td><td>S$10,400</td><td class="pos">+6.1%</td><td class="hide-sm">6.3%</td><td><span class="tag">HOLD</span></td></tr>
-            <tr><td><span class="ticker">ORB</span><br><span class="muted">Orchard Commercial REIT</span></td><td>7,600</td><td>S$1.22</td><td>S$1.18</td><td>S$8,968</td><td class="neg">−3.3%</td><td class="hide-sm">5.9%</td><td><span class="tag watch">WATCH</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <footer class="footer">Built as a personal, non-commercial software-development project. The public showcase uses fictional data only. No account credentials, brokerage data, private holdings or personal financial information are published here.</footer>
+    </nav>
   </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Personal software-development portfolio</div>
+        <h1>Building practical <span>software projects</span> around real problems.</h1>
+        <p class="lead">I build small applications and tools for travel planning, personal administration, automation and structured data. This site documents the software projects I work on, the technologies behind them, and what I learn while building them.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore projects</a>
+          <a class="btn secondary" href="https://github.com/mcwk1987" target="_blank" rel="noreferrer">View GitHub profile</a>
+        </div>
+      </div>
+      <aside class="terminal" aria-label="Development overview">
+        <div class="lights"><span class="light r"></span><span class="light y"></span><span class="light g"></span></div>
+        <pre><span class="dim">$</span> <span class="cmd">whoami</span>
+mcwk1987
+
+<span class="dim">$</span> <span class="cmd">cat interests.txt</span>
+web applications
+desktop software
+responsive UI
+automation
+data modelling
+API integrations
+
+<span class="dim">$</span> <span class="cmd">status</span>
+<span class="ok">learning by building</span></pre>
+      </aside>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="kicker">Selected projects</div>
+      <h2>Software built around problems I actually encounter.</h2>
+      <p class="section-copy">These are personal, non-commercial projects used to explore application architecture, data modelling, responsive design, testing, deployment and automation.</p>
+
+      <div class="projects">
+        <article class="card featured">
+          <div>
+            <div class="meta"><span class="type">Web application</span><span class="status">Active development</span></div>
+            <h3>VoyageSuite</h3>
+            <p class="desc">A personal trip-planning web application for building detailed multi-day itineraries and viewing them easily while travelling.</p>
+            <p class="focus"><strong>Development focus:</strong> responsive application design, itinerary data modelling, mobile travel mode, authentication, reliable date handling, trip lifecycle management and export workflows.</p>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">Vitest</span><span class="tag">Testing Library</span></div>
+          </div>
+          <div class="mock" aria-label="Abstract web application interface">
+            <div class="big"></div>
+            <div class="row"><div></div><div></div></div>
+            <div class="row"><div></div><div></div></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="meta"><span class="type">Windows desktop application</span><span class="status">Active development</span></div>
+          <h3>ShiftLedger</h3>
+          <p class="desc">A Windows desktop application for recording hourly work, project earnings, CPF calculations and payment reconciliation.</p>
+          <p class="focus"><strong>Development focus:</strong> desktop UI architecture, local persistence, calculation logic, reporting, reconciliation and automated testing.</p>
+          <div class="tags"><span class="tag">C#</span><span class="tag">WPF</span><span class="tag">.NET</span><span class="tag">MVVM</span><span class="tag">EF Core</span><span class="tag">SQLite</span></div>
+        </article>
+
+        <article class="card">
+          <div class="meta"><span class="type">Development experiments</span><span class="status">Ongoing</span></div>
+          <h3>Dashboard &amp; Automation Experiments</h3>
+          <p class="desc">Small software experiments involving responsive dashboards, structured data presentation, HTML email rendering, scheduled workflows and external-service integrations.</p>
+          <p class="focus"><strong>Development focus:</strong> cross-device UI, static deployment, email-compatible layouts, APIs and workflow automation.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span><span class="tag">APIs</span><span class="tag">Email</span><span class="tag">Automation</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="technology">
+    <div class="wrap">
+      <div class="kicker">Technology</div>
+      <h2>Tools and technologies I use while building.</h2>
+      <p class="section-copy">I choose technologies based on what the project needs, while keeping architecture understandable and testable.</p>
+      <div class="stack">
+        <article class="card"><h3>Web</h3><p>TypeScript, React, Next.js, HTML and CSS for responsive browser-based applications.</p></article>
+        <article class="card"><h3>Desktop</h3><p>C#, WPF, .NET and MVVM for structured Windows desktop applications.</p></article>
+        <article class="card"><h3>Data</h3><p>PostgreSQL, Supabase, SQLite and Entity Framework Core for persistence and application data modelling.</p></article>
+        <article class="card"><h3>Testing &amp; workflow</h3><p>Vitest, Testing Library, Git, GitHub and CI-oriented development workflows.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap approach">
+      <div>
+        <div class="kicker">How I build</div>
+        <h2>Learn by shipping small, working slices.</h2>
+        <p class="section-copy">I tend to build software around problems I actually encounter rather than tutorial projects. I prefer clear data models, incremental development and interfaces designed for the devices where they will actually be used.</p>
+      </div>
+      <div class="principles">
+        <div class="principle"><div class="num">01</div><div><h3>Start with the real workflow</h3><p>Understand the problem first, then design the software around the actual sequence of tasks.</p></div></div>
+        <div class="principle"><div class="num">02</div><div><h3>Build in small slices</h3><p>Keep changes focused enough to test, review and improve without destabilising unrelated parts of the application.</p></div></div>
+        <div class="principle"><div class="num">03</div><div><h3>Make state and data explicit</h3><p>Prefer predictable data models and clear boundaries between persistence, business rules and presentation.</p></div></div>
+        <div class="principle"><div class="num">04</div><div><h3>Design for the device</h3><p>Desktop and mobile experiences are deliberate interfaces rather than accidental scaled versions of one another.</p></div></div>
+        <div class="principle"><div class="num">05</div><div><h3>Test important behaviour</h3><p>Use automated tests where they provide confidence in calculations, state transitions and application logic.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <div class="kicker">Development profile</div>
+          <h2>More project activity on GitHub.</h2>
+          <p>This site is a personal, non-commercial record of my software-development work and experiments.</p>
+        </div>
+        <a class="btn primary" href="https://github.com/mcwk1987" target="_blank" rel="noreferrer">github.com/mcwk1987</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer">
+    <span>© 2026 mcwk1987 · Personal software-development portfolio</span>
+    <a href="https://github.com/mcwk1987" target="_blank" rel="noreferrer">GitHub</a>
+  </div>
+</footer>
 </body>
 </html>
