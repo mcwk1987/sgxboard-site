@@ -1,7 +1,21 @@
-# SGX Portfolio Dashboard
+# mcwk1987 — Personal Software Projects
 
-Public showcase for a personal, non-commercial software project exploring a concise daily dashboard for Singapore-listed income portfolios.
+Public personal software-development portfolio.
 
-The public site uses fictional/sample data only. No brokerage credentials, private holdings, personal balances, or private financial information are stored in this repository.
+The site documents non-commercial software projects and development experiments, including:
 
-The project is intentionally static so it can be hosted cleanly on GitHub Pages and used as the public project page for `sgxboard.is-a.dev`.
+- **VoyageSuite** — a Next.js / React / TypeScript trip-planning web application.
+- **ShiftLedger** — a C# / WPF / .NET desktop application using MVVM, EF Core and SQLite.
+- **Dashboard & Automation Experiments** — responsive UI, HTML email, APIs, deployment and workflow automation.
+
+The site is intentionally focused on software development and contains no private portfolio or financial-account data.
+
+## Live site
+
+GitHub Pages preview:
+
+https://mcwk1987.github.io/sgxboard-site/
+
+## Purpose
+
+This repository is used as a public developer-portfolio site for documenting personal, non-commercial software projects and technologies being explored.
