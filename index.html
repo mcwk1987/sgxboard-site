@@ -42,6 +42,12 @@
     .project-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px;align-items:center;padding:24px;overflow:hidden}
     .project-card.reverse{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
     .project-card.reverse .shot{order:-1}
+    .project-card.wide{grid-template-columns:1fr;gap:20px}
+    .project-card.wide .project-copy{max-width:920px;padding:8px 8px 0}
+    .project-card.wide .shot{order:0;width:min(100%,1080px);justify-self:center}
+    .project-card.wide .shot img{width:100%;aspect-ratio:auto;object-fit:contain}
+    .shift-shot a{overflow:hidden}
+    .shift-shot img{width:calc(100% + 14px)!important;max-width:none;margin:-3px -7px -3px;}
     .project-copy{padding:8px 4px}
     .project-index{display:inline-flex;align-items:center;gap:7px;margin-bottom:13px;color:#74839a;font:750 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}
     .project-index:before{content:"";width:22px;height:1px;background:linear-gradient(90deg,#82adff,#78e1c0)}
@@ -131,7 +137,7 @@ API integrations
           </figure>
         </article>
 
-        <article class="card project-card reverse">
+        <article class="card project-card wide">
           <div class="project-copy">
             <div class="project-index">02 · Windows desktop application</div>
             <div class="meta"><span class="type">ShiftLedger</span><span class="status">Working prototype</span></div>
@@ -141,7 +147,7 @@ API integrations
             <div class="tags"><span class="tag">C#</span><span class="tag">WPF</span><span class="tag">.NET</span><span class="tag">MVVM</span><span class="tag">EF Core</span><span class="tag">SQLite</span></div>
             <div class="proof" aria-label="ShiftLedger implementation details"><span>Layered solution</span><span>Demo database</span><span>GitHub Actions CI</span><span>Automated tests</span><span>Portable Windows build</span></div>
           </div>
-          <figure class="shot">
+          <figure class="shot shift-shot">
             <div class="shot-head"><span class="shot-dot"></span><span>ShiftLedger · dashboard</span><span class="shot-meta">demo data</span></div>
             <a href="shiftledger-dashboard.webp" target="_blank" rel="noreferrer" aria-label="Open ShiftLedger dashboard screenshot">
               <img src="shiftledger-dashboard.webp" alt="ShiftLedger desktop dashboard showing earnings, CPF and reconciliation panels" loading="lazy">
