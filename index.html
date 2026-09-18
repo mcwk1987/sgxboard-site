@@ -55,8 +55,8 @@
     .newsletter-feature{grid-template-columns:1fr;gap:20px}
     .newsletter-feature .project-copy{max-width:940px;padding:8px 8px 0}
     .newsletter-feature .shot{width:min(100%,1000px);max-width:1000px;justify-self:center;margin:0 auto}
-    .newsletter-preview{display:block;height:clamp(300px,46vw,460px)!important;overflow:hidden!important;background:#e8eef5!important}
-    .newsletter-preview img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:top center!important;margin:0!important;transform:none!important}
+    .newsletter-preview{display:block;overflow:hidden!important;background:#e8eef5!important;line-height:0}
+    .newsletter-preview img{display:block;width:100%!important;height:auto!important;max-width:100%!important;object-fit:contain!important;object-position:center!important;margin:0!important;transform:none!important}
     .newsletter-shot:hover img{transform:none!important}
     .project-copy{padding:8px 4px}
     .project-index{display:inline-flex;align-items:center;gap:7px;margin-bottom:13px;color:#74839a;font:750 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}
@@ -178,8 +178,8 @@ API integrations
           </div>
           <figure class="shot newsletter-shot">
             <div class="shot-head"><span class="shot-dot"></span><span>SGX Cash Control Panel · morning report</span><span class="shot-meta">click for full report</span></div>
-            <a class="newsletter-preview" href="sgx-cash-control-panel.webp" target="_blank" rel="noreferrer" aria-label="Open the full SGX Cash Control Panel newsletter">
-              <img src="sgx-cash-control-panel.webp" alt="SGX Cash Control Panel morning newsletter showing key metrics, actions, events and portfolio analytics" loading="lazy">
+            <a class="newsletter-preview" href="sgx-cash-control-panel-full-v2.webp" target="_blank" rel="noreferrer" aria-label="Open the full SGX Cash Control Panel newsletter">
+              <img src="sgx-cash-control-panel-thumb-v2.webp" alt="SGX Cash Control Panel morning newsletter showing the Singapore hero and key portfolio metrics" loading="lazy">
             </a>
             <figcaption class="shot-caption">Preview is intentionally cropped for the portfolio page. Click to open the complete newsletter.</figcaption>
           </figure>
