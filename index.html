@@ -46,6 +46,10 @@
     .project-card.wide .project-copy{max-width:none;padding:8px 4px}
     .project-card.wide .shot{order:0;width:100%;max-width:780px;justify-self:end}
     .project-card.wide .shot img{aspect-ratio:auto;object-fit:contain}
+    .project-card.voyage-feature{grid-template-columns:1fr;gap:20px}
+    .project-card.voyage-feature .project-copy{max-width:940px;padding:8px 8px 0}
+    .project-card.voyage-feature .shot{width:100%;max-width:none;justify-self:stretch}
+    .project-card.voyage-feature .shot img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;object-position:center}
     .shift-shot a{overflow:hidden;line-height:0}
     .shift-shot img{width:100%!important;max-width:100%;height:auto;margin:0;object-fit:contain;object-position:center;}
     .project-copy{padding:8px 4px}
@@ -118,7 +122,7 @@ API integrations
       <p class="section-copy">These are personal, non-commercial projects used to explore application architecture, data modelling, responsive design, testing, deployment and automation.</p>
 
       <div class="projects">
-        <article class="card project-card">
+        <article class="card project-card voyage-feature">
           <div class="project-copy">
             <div class="project-index">01 · Web application</div>
             <div class="meta"><span class="type">VoyageSuite</span><span class="status">Active development</span></div>
@@ -128,12 +132,12 @@ API integrations
             <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">Vitest</span></div>
             <div class="proof" aria-label="VoyageSuite implementation details"><span>Responsive UI</span><span>Trip API routes</span><span>GitHub Actions CI</span><span>Automated tests</span></div>
           </div>
-          <figure class="shot">
-            <div class="shot-head"><span class="shot-dot"></span><span>VoyageSuite · actual interface</span><span class="shot-meta">current build</span></div>
-            <a href="voyagesuite-trip-workspace.png" target="_blank" rel="noreferrer" aria-label="Open full VoyageSuite screenshot">
-              <img src="voyagesuite-trip-workspace.png" alt="VoyageSuite trip workspace showing the real application interface" loading="lazy">
+          <figure class="shot voyage-shot">
+            <div class="shot-head"><span class="shot-dot"></span><span>VoyageSuite · full desktop QA capture</span><span class="shot-meta">current build</span></div>
+            <a href="voyagesuite-qa-pexels.webp" target="_blank" rel="noreferrer" aria-label="Open the full VoyageSuite desktop QA screenshot">
+              <img src="voyagesuite-qa-pexels.webp" alt="Full VoyageSuite desktop trip workspace with a Pexels journey hero, photo day filmstrip, itinerary and map" loading="lazy">
             </a>
-            <figcaption class="shot-caption">Real Trip Workspace screenshot from the active VoyageSuite development build.</figcaption>
+            <figcaption class="shot-caption">Full QA capture showing the Pexels-backed journey hero, photo day filmstrip, itinerary and map — displayed uncropped.</figcaption>
           </figure>
         </article>
 
