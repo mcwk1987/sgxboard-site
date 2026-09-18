@@ -52,6 +52,12 @@
     .project-card.voyage-feature .shot img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;object-position:center}
     .shift-shot a{overflow:hidden;line-height:0}
     .shift-shot img{width:100%!important;max-width:100%;height:auto;margin:0;object-fit:contain;object-position:center;}
+    .newsletter-feature{grid-template-columns:1fr;gap:20px}
+    .newsletter-feature .project-copy{max-width:940px;padding:8px 8px 0}
+    .newsletter-feature .shot{width:min(100%,1000px);max-width:1000px;justify-self:center;margin:0 auto}
+    .newsletter-preview{display:block;height:clamp(300px,46vw,460px)!important;overflow:hidden!important;background:#e8eef5!important}
+    .newsletter-preview img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:top center!important;margin:0!important;transform:none!important}
+    .newsletter-shot:hover img{transform:none!important}
     .project-copy{padding:8px 4px}
     .project-index{display:inline-flex;align-items:center;gap:7px;margin-bottom:13px;color:#74839a;font:750 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}
     .project-index:before{content:"";width:22px;height:1px;background:linear-gradient(90deg,#82adff,#78e1c0)}
@@ -160,11 +166,23 @@ API integrations
           </figure>
         </article>
 
-        <article class="card">
-          <div class="meta"><span class="type">Development experiments</span><span class="status">Ongoing</span></div>
-          <h3>Dashboards, email rendering &amp; automation</h3>
-          <p class="desc">Smaller experiments around responsive dashboards, structured data presentation, HTML email rendering, scheduled workflows and external-service integrations.</p>
-          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span><span class="tag">APIs</span><span class="tag">Email</span><span class="tag">Automation</span></div>
+        <article class="card project-card newsletter-feature">
+          <div class="project-copy">
+            <div class="project-index">03 · Reporting &amp; automation</div>
+            <div class="meta"><span class="type">SGX Cash Control Panel</span><span class="status">Daily workflow</span></div>
+            <h3>Turn portfolio data into a decision-ready morning control panel.</h3>
+            <p class="desc">A responsive daily reporting experiment that combines market data, portfolio analytics, action rules, event tracking, charts and email-safe presentation into one structured morning brief.</p>
+            <p class="focus"><strong>Development focus:</strong> structured data presentation, responsive dashboard layout, static chart rendering, email-compatible HTML and scheduled delivery workflows.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Data visualisation</span><span class="tag">Email rendering</span><span class="tag">Automation</span><span class="tag">Responsive UI</span></div>
+            <div class="proof" aria-label="SGX control panel implementation details"><span>Static email-safe UI</span><span>Responsive layout</span><span>Charts &amp; tables</span><span>Scheduled workflow</span></div>
+          </div>
+          <figure class="shot newsletter-shot">
+            <div class="shot-head"><span class="shot-dot"></span><span>SGX Cash Control Panel · morning report</span><span class="shot-meta">click for full report</span></div>
+            <a class="newsletter-preview" href="sgx-cash-control-panel.webp" target="_blank" rel="noreferrer" aria-label="Open the full SGX Cash Control Panel newsletter">
+              <img src="sgx-cash-control-panel.webp" alt="SGX Cash Control Panel morning newsletter showing key metrics, actions, events and portfolio analytics" loading="lazy">
+            </a>
+            <figcaption class="shot-caption">Preview is intentionally cropped for the portfolio page. Click to open the complete newsletter.</figcaption>
+          </figure>
         </article>
       </div>
     </div>
